@@ -430,7 +430,7 @@ const AdminDashboard = () => {
                       <td>Rs. {product.price}</td>
                       <td>
                         <img
-                          src={`http://localhost:5000${product.imageUrl}`}
+                          src={`https://dreamhousebackend-vvxx.onrender.com${product.imageUrl}`}
                           alt={product.name}
                           className="product-img"
                         />
