@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
-import { useLocation } from "react-router-dom"
-import { Facebook, Phone, Mail, MapPin } from "lucide-react"
+import { useLocation, useNavigate } from "react-router-dom"
+import { Facebook, Phone, Mail, MapPin } from 'lucide-react'
 import "./Footer.css"
 import { Link } from "react-router-dom"
 import footer from "../img/hero.jpg"
@@ -11,14 +11,16 @@ import footer3 from "../img/footer3.jpg"
 
 const Footer = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const [clickCount, setClickCount] = useState(0)
 
   useEffect(() => {
     if (clickCount === 5) {
-      window.open("/auth", "_blank")
+      // Changed from window.open("/auth", "_blank") to navigate
+      navigate("/auth")
       setClickCount(0) // Reset the counter after opening the auth page
     }
-  }, [clickCount])
+  }, [clickCount, navigate])
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
@@ -32,7 +34,8 @@ const Footer = () => {
     if (location.pathname === "/") {
       scrollToSection(id)
     } else {
-      window.location.href = `/#${id}`
+      // Using string concatenation instead of template literals
+      window.location.href = "/" + "#" + id;
     }
   }
 
@@ -113,19 +116,19 @@ const Footer = () => {
             <h4 className="footer-heading">Our Store</h4>
             <div className="gallery-grid">
               <img
-                src= {footer}
+                src={footer || "/placeholder.svg"}
                 alt="Store Interior"
               />
               <img
-                src= {footer1}
+                src={footer1 || "/placeholder.svg"}
                 alt="Paint Selection"
               />
               <img
-                src= {footer2}
+                src={footer2 || "/placeholder.svg"}
                 alt="Paint Mixing"
               />
               <img
-                src= {footer3}
+                src={footer3 || "/placeholder.svg"}
                 alt="Color Consultation"
               />
             </div>
@@ -144,4 +147,3 @@ const Footer = () => {
 }
 
 export default Footer
-
