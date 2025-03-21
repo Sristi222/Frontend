@@ -138,12 +138,12 @@ const AdminDashboard = () => {
 
     try {
       if (editingProduct) {
-        await axios.put(`http://localhost:5000/api/products/${editingProduct._id}`, formData, {
+        await axios.put(`https://dreamhousebackend-vvxx.onrender.com/api/products/${editingProduct._id}`, formData, {
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
         })
         alert("✅ Product updated successfully!")
       } else {
-        await axios.post("http://localhost:5000/api/products", formData, {
+        await axios.post("https://dreamhousebackend-vvxx.onrender.com/api/products", formData, {
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
         })
         alert("✅ Product added successfully!")
@@ -169,7 +169,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://dreamhousebackend-vvxx.onrender.com/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       alert("✅ Product deleted successfully!")
@@ -201,7 +201,7 @@ const AdminDashboard = () => {
   const handleFeaturedToggle = async (id, currentFeatured) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/products/${id}`,
+        `https://dreamhousebackend-vvxx.onrender.com/api/products/${id}`,
         { featured: !currentFeatured },
         { headers: { Authorization: `Bearer ${token}` } },
       )
