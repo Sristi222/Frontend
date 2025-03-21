@@ -53,7 +53,7 @@ const AllProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products")
+        const response = await axios.get("https://dreamhousebackend-vvxx.onrender.com/api/products")
         setProducts(response.data || [])
       } catch (error) {
         console.error("❌ Error fetching products:", error)
@@ -180,7 +180,7 @@ const AllProducts = () => {
                 <div key={product._id} className="product-card">
                   <div className="product-image-container">
                     <img
-                      src={product.imageUrl ? `http://localhost:5000${product.imageUrl}` : "/placeholder.svg"}
+                      src={product.imageUrl ? `https://dreamhousebackend-vvxx.onrender.com${product.imageUrl}` : "/placeholder.svg"}
                       alt={product.name}
                       className="product-image"
                     />
@@ -237,7 +237,7 @@ const AllProducts = () => {
               &times;
             </span>
             <img
-              src={modalProduct.imageUrl ? `http://localhost:5000${modalProduct.imageUrl}` : "/placeholder.svg"}
+              src={modalProduct.imageUrl ? `https://dreamhousebackend-vvxx.onrender.com${modalProduct.imageUrl}` : "/placeholder.svg"}
               alt={modalProduct.name}
               className="modal-image"
             />
