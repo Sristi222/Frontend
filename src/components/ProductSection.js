@@ -16,7 +16,7 @@ const ProductSection = () => {
     const fetchProducts = async () => {
       try {
         // Changed the limit to 6 in the API call
-        const response = await axios.get("http://localhost:5000/api/products?limit=6")
+        const response = await axios.get("https://dreamhousebackend-vvxx.onrender.com/api/products?limit=6")
         setProducts(response.data || [])
       } catch (error) {
         console.error("❌ Error fetching products:", error)
@@ -175,7 +175,7 @@ const ProductSection = () => {
               &times;
             </span>
             <img
-              src={modalProduct.imageUrl ? `http://localhost:5000${modalProduct.imageUrl}` : "/placeholder.svg"}
+              src={modalProduct.imageUrl ? `https://dreamhousebackend-vvxx.onrender.com${modalProduct.imageUrl}` : "/placeholder.svg"}
               alt={modalProduct.name}
               className="modal-image"
             />
