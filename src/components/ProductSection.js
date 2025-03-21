@@ -101,7 +101,7 @@ const ProductSection = () => {
 
         <div className="product-image-container">
           <img
-            src={product.imageUrl ? `http://localhost:5000${product.imageUrl}` : "/placeholder.svg"}
+            src={product.imageUrl ? `https://dreamhousebackend-vvxx.onrender.com${product.imageUrl}` : "/placeholder.svg"}
             alt={product.name}
             className="product-image"
           />
